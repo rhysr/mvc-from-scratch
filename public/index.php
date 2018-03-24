@@ -6,6 +6,7 @@ $urlPath = $parsedUrl['path'];
 
 
 $view = function(array $params): string {
+    // TODO: XSS vulnerable
     ob_start();
     require 'templates/default.phtml';
     $html = \ob_get_contents();
@@ -21,10 +22,10 @@ $homeController = function() use ($view) {
     return $view($viewParams);
 };
 
-$productController = function() use ($view) {
+$productController = function(array $params) use ($view) {
     $viewParams = [
-        'body' => 'PRODUCT 123456',
-        'title' =>  'Product 123456'
+        'body' => 'PRODUCT ' . $params['id'],
+        'title' =>  'Product ' . $params['id'],
     ];
     return $view($viewParams);
 };
@@ -41,7 +42,7 @@ $controller = $noMatchController;
 
 $routings = [
     [new \Router\StaticRoute('/'), $homeController],
-    [new \Router\RegexRoute('#/product/\d+$#'), $productController]
+    [new \Router\RegexRoute('#/product/(?<id>\d+)$#'), $productController]
 ];
 
 foreach ($routings as $routing) {
