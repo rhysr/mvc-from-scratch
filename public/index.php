@@ -5,29 +5,36 @@ $parsedUrl = parse_url($_SERVER['REQUEST_URI']);
 $urlPath = $parsedUrl['path'];
 
 
-$body = 'UNKNOWN';
-$title = 'Unknown';
-
-$homeController = function() {
-    return [
-        'body' => 'HOME',
-        'title' => 'home',
-    ];
+$view = function(array $params): string {
+    ob_start();
+    require 'templates/default.phtml';
+    $html = \ob_get_contents();
+    ob_end_clean();
+    return $html;
 };
 
-$productController = function() {
-    return [
+$homeController = function() use ($view) {
+    $viewParams = [
+        'body' => 'HOME',
+        'title' => 'Home',
+    ];
+    return $view($viewParams);
+};
+
+$productController = function() use ($view) {
+    $viewParams = [
         'body' => 'PRODUCT 123456',
         'title' =>  'Product 123456'
     ];
+    return $view($viewParams);
 };
 
-$noMatchController = function () {
-    return [
+$noMatchController = function () use ($view) {
+    $viewParams = [
         'body' => 'UNKNOWN',
         'title' =>  'Unknown'
     ];
-
+    return $view($viewParams);
 };
 
 $controller = $noMatchController;
@@ -46,22 +53,4 @@ foreach ($routings as $routing) {
     }
 }
 
-$params = $controller();
-
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title><?php echo $params['title'] ?>$</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-</head>
-<body>
-    <div class="content">
-        <main class="container">
-            <?php echo $params['body'] ?>
-        </main>
-    </div>
-</body>
-</html>
+echo $controller($match->getParams());
