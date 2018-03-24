@@ -9,6 +9,11 @@
         }
     ],
     "minimum-stability": "stable",
+    "autoload-dev": {
+        "psr-4": {
+            "FooTest\\": "module/Foo/"
+        }
+    },
     "require": {},
     "require-dev": {
         "phpunit/phpunit": "^7",
