@@ -35,6 +35,13 @@ class StaticRouteTest extends TestCase
         $this->assertFalse($match->isMatch());
     }
 
+    public function testReturnsEmptyRouteParams()
+    {
+        $route = $this->createRoute('/matching');
+        $match = $route->match('/matching');
+        $this->assertCount(0, $match->getParams());
+    }
+
     private function createRoute(string $path)
     {
         return new StaticRoute($path);

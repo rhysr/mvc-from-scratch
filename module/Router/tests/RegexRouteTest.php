@@ -35,6 +35,18 @@ class RegexRouteTest extends TestCase
         $this->assertFalse($match->isMatch());
     }
 
+    public function testMatchedRouteReturnsNamedRegexGroupParamsFromUrl()
+    {
+        $route = $this->createRoute('#^/(?<name>[a-z]+)/(?<id>\d+)$#');
+        $match = $route->match('/dave/1234');
+        $params = $match->getParams();
+        $this->assertCount(2, $params);
+        $this->assertArrayHasKey('name', $params);
+        $this->assertArrayHasKey('id', $params);
+        $this->assertEquals('dave', $params['name']);
+        $this->assertEquals('1234', $params['id']);
+    }
+
     private function createRoute(string $path)
     {
         return new RegexRoute($path);
