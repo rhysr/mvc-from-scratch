@@ -9,11 +9,12 @@ $body = 'UNKNOWN';
 $title = 'Unknown';
 
 $homeRoute = new \Router\StaticRoute('/');
-$productRoute = new \Router\StaticRoute('/product/123456');
+$productRoute = new \Router\RegexRoute('#/product/\d+$#');
 if ($homeRoute->isMatch($urlPath)) {
     $body = 'HOME';
     $title = 'Home';
 } elseif ($productRoute->isMatch($urlPath)) {
+    // TODO: get product id from route
     $body = 'PRODUCT 123456';
     $title = 'Product 123456';
 }

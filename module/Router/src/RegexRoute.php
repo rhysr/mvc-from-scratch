@@ -2,7 +2,7 @@
 
 namespace Router;
 
-final class StaticRoute
+final class RegexRoute
 {
     private $path;
 
@@ -13,6 +13,6 @@ final class StaticRoute
 
     public function isMatch(string $path): bool
     {
-        return $path === $this->path;
+        return (bool) preg_match($this->path, $path);
     }
 }
