@@ -13,4 +13,5 @@ return array(
     'FooTest\\' => array($baseDir . '/module/Foo/tests'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'DeepCopy\\' => array($vendorDir . '/myclabs/deep-copy/src/DeepCopy'),
+    'Controller\\' => array($baseDir . '/module/Controller/src'),
 );

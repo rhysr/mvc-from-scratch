@@ -11,6 +11,7 @@
     "minimum-stability": "stable",
     "autoload": {
         "psr-4": {
+            "Controller\\": "module/Controller/src",
             "Router\\": "module/Router/src"
         }
     },

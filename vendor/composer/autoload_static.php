@@ -33,6 +33,10 @@ class ComposerStaticInit9e8124bdedf40ce29c149316f6bd5309
             'Doctrine\\Instantiator\\' => 22,
             'DeepCopy\\' => 9,
         ),
+        'C' => 
+        array (
+            'Controller\\' => 11,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -66,6 +70,10 @@ class ComposerStaticInit9e8124bdedf40ce29c149316f6bd5309
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
+        'Controller\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/module/Controller/src',
+        ),
     );
 
     public static $prefixesPsr0 = array (
@@ -79,6 +87,7 @@ class ComposerStaticInit9e8124bdedf40ce29c149316f6bd5309
     );
 
     public static $classMap = array (
+        'Controller\\Controller' => __DIR__ . '/../..' . '/module/Controller/src/Controller.php',
         'DeepCopy\\DeepCopy' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/DeepCopy.php',
         'DeepCopy\\Exception\\CloneException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/CloneException.php',
         'DeepCopy\\Exception\\PropertyException' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/Exception/PropertyException.php',
