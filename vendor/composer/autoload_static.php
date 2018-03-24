@@ -19,6 +19,11 @@ class ComposerStaticInit9e8124bdedf40ce29c149316f6bd5309
         array (
             'Webmozart\\Assert\\' => 17,
         ),
+        'R' => 
+        array (
+            'Router\\' => 7,
+            'RouterTest\\' => 11,
+        ),
         'F' => 
         array (
             'FooTest\\' => 8,
@@ -41,9 +46,17 @@ class ComposerStaticInit9e8124bdedf40ce29c149316f6bd5309
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
+        'Router\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/module/Router/src',
+        ),
+        'RouterTest\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/module/Router/tests',
+        ),
         'FooTest\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/module/Foo',
+            0 => __DIR__ . '/../..' . '/module/Foo/tests',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
@@ -596,6 +609,8 @@ class ComposerStaticInit9e8124bdedf40ce29c149316f6bd5309
         'Prophecy\\Prophet' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Prophet.php',
         'Prophecy\\Util\\ExportUtil' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Util/ExportUtil.php',
         'Prophecy\\Util\\StringUtil' => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy/Util/StringUtil.php',
+        'RouterTest\\StaticRouteTest' => __DIR__ . '/../..' . '/module/Router/tests/StaticRouteTest.php',
+        'Router\\StaticRoute' => __DIR__ . '/../..' . '/module/Router/src/StaticRoute.php',
         'SebastianBergmann\\CodeCoverage\\CodeCoverage' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/CodeCoverage.php',
         'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
         'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Driver/Driver.php',

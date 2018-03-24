@@ -6,6 +6,7 @@
     <testsuites>
         <testsuite name="Foo">
             <directory>./module/Foo/tests</directory>
+            <directory>./module/Router/tests</directory>
         </testsuite>
     </testsuites>
 

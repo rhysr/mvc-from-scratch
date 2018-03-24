@@ -9,9 +9,15 @@
         }
     ],
     "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Router\\": "module/Router/src"
+        }
+    },
     "autoload-dev": {
         "psr-4": {
-            "FooTest\\": "module/Foo/"
+            "FooTest\\": "module/Foo/tests",
+            "RouterTest\\": "module/Router/tests"
         }
     },
     "require": {},

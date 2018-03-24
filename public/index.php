@@ -1,14 +1,19 @@
 <?php
+require 'vendor/autoload.php';
+
 $parsedUrl = parse_url($_SERVER['REQUEST_URI']);
 $urlPath = $parsedUrl['path'];
 
 
 $body = 'UNKNOWN';
 $title = 'Unknown';
-if ('/' === $urlPath) {
+
+$homeRoute = new \Router\StaticRoute('/');
+$productRoute = new \Router\StaticRoute('/product/123456');
+if ($homeRoute->isMatch($urlPath)) {
     $body = 'HOME';
     $title = 'Home';
-} elseif ('/product/123456' === $urlPath) {
+} elseif ($productRoute->isMatch($urlPath)) {
     $body = 'PRODUCT 123456';
     $title = 'Product 123456';
 }
