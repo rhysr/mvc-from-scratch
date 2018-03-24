@@ -15,4 +15,10 @@ final class RegexRoute implements Route
     {
         return (bool) preg_match($this->path, $path);
     }
+
+    public function match(string $path): RouteResult
+    {
+        $success = (bool) preg_match($this->path, $path);
+        return new RouteResult($success);
+    }
 }

@@ -10,13 +10,18 @@ $title = 'Unknown';
 
 $homeRoute = new \Router\StaticRoute('/');
 $productRoute = new \Router\RegexRoute('#/product/\d+$#');
-if ($homeRoute->isMatch($urlPath)) {
+
+$homeMatch = $homeRoute->match($urlPath);
+if ($homeMatch->isMatch()) {
     $body = 'HOME';
     $title = 'Home';
-} elseif ($productRoute->isMatch($urlPath)) {
-    // TODO: get product id from route
-    $body = 'PRODUCT 123456';
-    $title = 'Product 123456';
+} else {
+    $productMatch = $productRoute->match($urlPath);
+    if ($productMatch->isMatch()) {
+        // TODO: get product id from route
+        $body = 'PRODUCT 123456';
+        $title = 'Product 123456';
+    }
 }
 
 ?>
