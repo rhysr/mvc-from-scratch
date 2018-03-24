@@ -2,7 +2,7 @@
 
 namespace Router;
 
-class RouteResult
+final class RouteResult
 {
     private $success;
 
