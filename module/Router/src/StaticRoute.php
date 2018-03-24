@@ -11,11 +11,6 @@ final class StaticRoute implements Route
         $this->path = $path;
     }
 
-    public function isMatch(string $path): bool
-    {
-        return $path === $this->path;
-    }
-
     public function match(string $path): RouteResult
     {
         $match = $path === $this->path;

@@ -14,18 +14,6 @@ class RegexRouteTest extends TestCase
         $this->assertInstanceOf(\Router\Route::class, $route);
     }
 
-    public function testReturnBooleanWhenPathMatches()
-    {
-        $route = $this->createRoute('#^/thing/\d+$#');
-        $this->assertTrue($route->isMatch('/thing/1234'));
-    }
-
-    public function testReturnBooleanWhenPathDoesntMatch()
-    {
-        $route = $this->createRoute('#^/user/\d+$#');
-        $this->assertFalse($route->isMatch('/somewhere-else'));
-    }
-
     public function testReturnsRouteResultWhenMatching()
     {
         $route = $this->createRoute('#^/user/\d+$#');

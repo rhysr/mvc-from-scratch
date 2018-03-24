@@ -14,18 +14,6 @@ class StaticRouteTest extends TestCase
         $this->assertInstanceOf(\Router\Route::class, $route);
     }
 
-    public function testReturnBooleanWhenPathMatches()
-    {
-        $route = $this->createRoute('/');
-        $this->assertTrue($route->isMatch('/'));
-    }
-
-    public function testReturnBooleanWhenPathDoesntMatch()
-    {
-        $route = $this->createRoute('/super-awesome');
-        $this->assertFalse($route->isMatch('/does-not-exist'));
-    }
-
     public function testReturnsRouteResultWhenMatching()
     {
         $route = $this->createRoute('/super-awesome');

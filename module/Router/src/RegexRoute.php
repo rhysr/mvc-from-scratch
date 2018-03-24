@@ -11,11 +11,6 @@ final class RegexRoute implements Route
         $this->path = $path;
     }
 
-    public function isMatch(string $path): bool
-    {
-        return (bool) preg_match($this->path, $path);
-    }
-
     public function match(string $path): RouteResult
     {
         $success = (bool) preg_match($this->path, $path);
