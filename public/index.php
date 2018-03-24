@@ -32,16 +32,17 @@ $noMatchController = function () {
 
 $controller = $noMatchController;
 
-$homeRoute = new \Router\StaticRoute('/');
-$productRoute = new \Router\RegexRoute('#/product/\d+$#');
+$routings = [
+    [new \Router\StaticRoute('/'), $homeController],
+    [new \Router\RegexRoute('#/product/\d+$#'), $productController]
+];
 
-$homeMatch = $homeRoute->match($urlPath);
-if ($homeMatch->isMatch()) {
-    $controller = $homeController;
-} else {
-    $productMatch = $productRoute->match($urlPath);
-    if ($productMatch->isMatch()) {
-        $controller = $productController;
+foreach ($routings as $routing) {
+    $route = $routing[0];
+    $match = $route->match($urlPath);
+    if ($match->isMatch()) {
+        $controller = $routing[1];
+        break;
     }
 }
 
