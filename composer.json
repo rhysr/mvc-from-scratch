@@ -1,0 +1,13 @@
+{
+    "name": "rhysr/mvc-from-scratch",
+    "description": "Create an MVC framework from scratch",
+    "type": "project",
+    "authors": [
+        {
+            "name": "rhysr",
+            "email": "rhys@mega-city-one.co.uk"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
