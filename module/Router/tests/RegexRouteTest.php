@@ -8,6 +8,12 @@ use PHPUnit\Framework\TestCase;
 
 class RegexRouteTest extends TestCase
 {
+    public function testImplementsRouteTest()
+    {
+        $route = $this->createRoute('#^/\d+$#');
+        $this->assertInstanceOf(\Router\Route::class, $route);
+    }
+
     public function testReturnBooleanWhenPathMatches()
     {
         $route = $this->createRoute('#^/thing/\d+$#');
@@ -16,7 +22,7 @@ class RegexRouteTest extends TestCase
 
     public function testReturnBooleanWhenPathDoesntMatch()
     {
-        $route = $this->createRoute('#/user/\d+$#');
+        $route = $this->createRoute('#^/user/\d+$#');
         $this->assertFalse($route->isMatch('/somewhere-else'));
     }
 

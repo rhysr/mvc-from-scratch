@@ -2,7 +2,7 @@
 
 namespace Router;
 
-final class StaticRoute
+final class StaticRoute implements Route
 {
     private $path;
 

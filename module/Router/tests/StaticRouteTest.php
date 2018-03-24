@@ -8,6 +8,12 @@ use PHPUnit\Framework\TestCase;
 
 class StaticRouteTest extends TestCase
 {
+    public function testImplementsRouteTest()
+    {
+        $route = $this->createRoute('/');
+        $this->assertInstanceOf(\Router\Route::class, $route);
+    }
+
     public function testReturnBooleanWhenPathMatches()
     {
         $route = $this->createRoute('/');

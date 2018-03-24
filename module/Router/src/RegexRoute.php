@@ -2,7 +2,7 @@
 
 namespace Router;
 
-final class RegexRoute
+final class RegexRoute implements Route
 {
     private $path;
 
