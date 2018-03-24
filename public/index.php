@@ -8,6 +8,9 @@ $title = 'Unknown';
 if ('/' === $urlPath) {
     $body = 'HOME';
     $title = 'Home';
+} elseif ('/product/123456' === $urlPath) {
+    $body = 'PRODUCT 123456';
+    $title = 'Product 123456';
 }
 
 ?>
