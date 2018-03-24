@@ -20,6 +20,16 @@ class RouteResultTest extends TestCase
         $this->assertFalse($result->isMatch());
     }
 
+    public function testSuccessfulResultCanContainParams()
+    {
+        $result = new RouteResult(true, ['param1' => 'a var']);
+        $this->assertInternalType('array', $result->getParams());
+        $params = $result->getParams();
+        $this->assertCount(1, $params);
+        $this->assertArrayHasKey('param1', $params);
+        $this->assertEquals('a var', $params['param1']);
+    }
+
     private function createRoute(string $path)
     {
         return new RouteResult();
