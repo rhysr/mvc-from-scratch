@@ -1,6 +1,14 @@
 <?php
-$body = 'HOME';
-$title = 'Home';
+$parsedUrl = parse_url($_SERVER['REQUEST_URI']);
+$urlPath = $parsedUrl['path'];
+
+
+$body = 'UNKNOWN';
+$title = 'Unknown';
+if ('/' === $urlPath) {
+    $body = 'HOME';
+    $title = 'Home';
+}
 
 ?>
 <!DOCTYPE html>
