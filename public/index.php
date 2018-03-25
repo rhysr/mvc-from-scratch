@@ -10,7 +10,7 @@ class HomeController implements \Controller\Controller
         $this->view = $view;
     }
 
-    public function __invoke(array $params)
+    public function __invoke(\Http\Request $request): \Http\Response
     {
         $viewParams = [
             'body' => 'HOME',
@@ -30,8 +30,9 @@ class ProductController implements \Controller\Controller
         $this->view = $view;
     }
 
-    public function __invoke(array $params)
+    public function __invoke(\Http\Request $request): \Http\Response
     {
+        $params = $request->getParams();
         $viewParams = [
             'body' => 'PRODUCT ' . $params['id'],
             'title' =>  'Product ' . $params['id'],
@@ -50,7 +51,7 @@ class UnknownController implements \Controller\Controller
         $this->view = $view;
     }
 
-    public function __invoke(array $params)
+    public function __invoke(\Http\Request $request): \Http\Response
     {
         $viewParams = [
             'body' => 'UNKNOWN',
@@ -83,17 +84,20 @@ $routings          = [
 ];
 
 $parsedUrl = parse_url($_SERVER['REQUEST_URI']);
-$urlPath   = $parsedUrl['path'];
+$request = new \Http\Request($parsedUrl['path']);
 foreach ($routings as $routing) {
     $route = $routing[0];
-    $match = $route->match($urlPath);
+    $match = $route->match($request->getPath());
     if ($match->isMatch()) {
         $controller = $routing[1];
+        foreach ($match->getParams() as $name => $value) {
+            $request->addParam($name, $value);
+        }
         break;
     }
 }
 
-$response = $controller($match->getParams());
+$response = $controller($request);
 
 http_response_code($response->getResponseCode());
 foreach ($response->getHeaderLines() as $header) {

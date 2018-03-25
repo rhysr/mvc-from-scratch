@@ -119,6 +119,7 @@ class ComposerStaticInit9e8124bdedf40ce29c149316f6bd5309
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
+        'Http\\Request' => __DIR__ . '/../..' . '/module/Http/src/Request.php',
         'Http\\Response' => __DIR__ . '/../..' . '/module/Http/src/Response.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert.php',

@@ -2,7 +2,10 @@
 
 namespace Controller;
 
+use \Http\Request;
+use \Http\Response;
+
 interface Controller
 {
-    public function __invoke(array $params);
+    public function __invoke(Request $request): Response;
 }
