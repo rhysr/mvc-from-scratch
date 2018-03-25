@@ -24,10 +24,6 @@ class ComposerStaticInit9e8124bdedf40ce29c149316f6bd5309
             'Router\\' => 7,
             'RouterTest\\' => 11,
         ),
-        'F' => 
-        array (
-            'FooTest\\' => 8,
-        ),
         'D' => 
         array (
             'Doctrine\\Instantiator\\' => 22,
@@ -57,10 +53,6 @@ class ComposerStaticInit9e8124bdedf40ce29c149316f6bd5309
         'RouterTest\\' => 
         array (
             0 => __DIR__ . '/../..' . '/module/Router/tests',
-        ),
-        'FooTest\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/module/Foo/tests',
         ),
         'Doctrine\\Instantiator\\' => 
         array (

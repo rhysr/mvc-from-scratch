@@ -17,7 +17,6 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "FooTest\\": "module/Foo/tests",
             "RouterTest\\": "module/Router/tests"
         }
     },
