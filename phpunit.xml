@@ -5,7 +5,7 @@
          colors="true">
     <testsuites>
         <testsuite name="MVC">
-            <directory>./module/Router/tests</directory>
+            <directory>./module/*/tests</directory>
         </testsuite>
     </testsuites>
 

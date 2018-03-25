@@ -12,6 +12,7 @@
     "autoload": {
         "psr-4": {
             "Controller\\": "module/Controller/src",
+            "Http\\": "module/Http/src",
             "Router\\": "module/Router/src"
         }
     },

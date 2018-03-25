@@ -16,7 +16,8 @@ class HomeController implements \Controller\Controller
             'body' => 'HOME',
             'title' => 'Home',
         ];
-        return $this->view->render($viewParams);
+        $body = $this->view->render($viewParams);
+        return new \Http\Response(200, [], $body);
     }
 }
 
@@ -35,7 +36,8 @@ class ProductController implements \Controller\Controller
             'body' => 'PRODUCT ' . $params['id'],
             'title' =>  'Product ' . $params['id'],
         ];
-        return $this->view->render($viewParams);
+        $body = $this->view->render($viewParams);
+        return new \Http\Response(200, [], $body);
     }
 }
 
@@ -54,7 +56,8 @@ class UnknownController implements \Controller\Controller
             'body' => 'UNKNOWN',
             'title' =>  'Unknown'
         ];
-        return $this->view->render($viewParams);
+        $body = $this->view->render($viewParams);
+        return new \Http\Response(404, [], $body);
     }
 }
 
@@ -90,4 +93,10 @@ foreach ($routings as $routing) {
     }
 }
 
-echo $controller($match->getParams());
+$response = $controller($match->getParams());
+
+http_response_code($response->getResponseCode());
+foreach ($response->getHeaderLines() as $header) {
+    header($header);
+}
+echo $response->getBody();
